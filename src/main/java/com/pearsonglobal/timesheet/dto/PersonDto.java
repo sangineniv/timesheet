@@ -1,17 +1,11 @@
 package com.pearsonglobal.timesheet.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-@Entity(name = "advisor")
-
-public class AdvisorDto {
-    @Id
+@XmlRootElement
+public class PersonDto {
     private int id;
     private String name;
-
-    private String course;
 
     public int getId() {
         return id;
@@ -27,13 +21,5 @@ public class AdvisorDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
     }
 }
