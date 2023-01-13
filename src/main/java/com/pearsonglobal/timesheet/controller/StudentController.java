@@ -5,6 +5,7 @@ import com.pearsonglobal.timesheet.dto.StudentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,10 +15,12 @@ public class StudentController {
    private StudentDao studentDao;
 
     @GetMapping("/getStudent")
-    public StudentDto getStudent() {
-        StudentDto studentDto = new StudentDto();
-        studentDto = studentDao.find();
-        return studentDto;
+    public StudentDto getStudent(@RequestParam int studentId) {
+        return studentDao.find(studentId);
+    }
+    @GetMapping("/findStudent")
+    public StudentDto findStudent(@RequestParam String name) {
+        return studentDao.find(name);
     }
 
 }
